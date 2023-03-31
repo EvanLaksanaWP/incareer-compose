@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.raion.incareer.presentation.ui.navigation.Screen
 import kotlinx.coroutines.launch
 
-class SplashViewModel( private val repository: Repository ): ViewModel(){
+class SplashViewModel(private val repository: Repository ): ViewModel(){
 
     private val _nextDestination: MutableState <String> = mutableStateOf(Screen.OnBoarding.route)
 

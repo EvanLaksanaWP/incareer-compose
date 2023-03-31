@@ -20,7 +20,7 @@ fun NavGraph() {
             SplashScreen(navController = navController)
         }
         composable(Screen.OnBoarding.route){
-            OnBoardingScreen()
+            OnBoardingScreen(navController = navController)
         }
         composable(Screen.Login.route){
             LoginScreen()

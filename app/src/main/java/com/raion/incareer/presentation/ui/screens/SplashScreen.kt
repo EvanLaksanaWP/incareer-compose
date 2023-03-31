@@ -1,7 +1,6 @@
 package com.raion.incareer.presentation.ui.screens
 
 import android.content.pm.ActivityInfo
-import android.window.SplashScreen
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -18,21 +17,19 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import com.chenzfall.incareer.R
 import com.raion.incareer.presentation.ui.components.LockScreenOrientation
-import com.raion.incareer.presentation.ui.navigation.Screen
 import com.raion.incareer.presentation.viewmodels.SplashViewModel
 import com.raion.incareer.util.Constants
 import kotlinx.coroutines.delay
+import org.koin.androidx.compose.getViewModel
 
 
 @Composable
 fun SplashScreen(
     navController: NavController,
-    viewModel: SplashViewModel = hiltViewModel()
+    viewModel: SplashViewModel = getViewModel()
 ) {
 
     LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)

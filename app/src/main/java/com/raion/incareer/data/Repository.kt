@@ -1,10 +1,7 @@
 package com.raion.incareer.data
 
-import android.content.Context
-import javax.inject.Inject
 
-class Repository @Inject constructor(context: Context){
-    private val userPreference = UserPreference(context)
+class Repository (private val userPreference: UserPreference){
 
     fun readOnBoardingState() = userPreference.readOnBoardingState()
 

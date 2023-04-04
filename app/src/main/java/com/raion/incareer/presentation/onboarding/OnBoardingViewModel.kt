@@ -1,4 +1,4 @@
-package com.raion.incareer.presentation.viewmodels
+package com.raion.incareer.presentation.onboarding
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

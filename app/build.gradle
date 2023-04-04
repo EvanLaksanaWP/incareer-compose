@@ -84,4 +84,7 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-androidx-compose:$koin_version"
 
+    // Icon
+    implementation "androidx.compose.material:material-icons-extended:1.4.0"
+
 }

@@ -1,4 +1,4 @@
-package com.raion.incareer.data
+package com.raion.incareer.presentation.onboarding
 
 import androidx.annotation.DrawableRes
 import com.chenzfall.incareer.R

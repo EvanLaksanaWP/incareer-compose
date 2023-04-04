@@ -1,4 +1,4 @@
-package com.raion.incareer.presentation.viewmodels
+package com.raion.incareer.presentation.splash
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import com.raion.incareer.data.Repository
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.raion.incareer.presentation.ui.navigation.Screen
+import com.raion.incareer.presentation.navigation.Screen
 import kotlinx.coroutines.launch
 
 class SplashViewModel(private val repository: Repository ): ViewModel(){

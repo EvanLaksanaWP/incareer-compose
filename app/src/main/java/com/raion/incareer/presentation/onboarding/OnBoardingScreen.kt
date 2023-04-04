@@ -9,12 +9,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
@@ -28,10 +31,10 @@ import androidx.navigation.NavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.raion.incareer.data.OnBoardingItems
+import com.raion.incareer.presentation.onboarding.OnBoardingItems
 import com.chenzfall.incareer.R
-import com.raion.incareer.presentation.ui.navigation.Screen
-import com.raion.incareer.presentation.viewmodels.OnBoardingViewModel
+import com.raion.incareer.presentation.navigation.Screen
+import com.raion.incareer.presentation.onboarding.OnBoardingViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 
@@ -40,10 +43,9 @@ const val LAST_PAGE = 2
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-
 fun OnBoardingScreen(
     navController: NavController,
-    viewModel:OnBoardingViewModel = getViewModel()
+    viewModel: OnBoardingViewModel = getViewModel()
 ) {
 
     val pages = listOf(
@@ -55,9 +57,16 @@ fun OnBoardingScreen(
     val pagerState = rememberPagerState()
     
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(
+                brush = Brush.radialGradient(
+                    colors = listOf(Color(0xFF82AAE3), Color(0xFF00359E)),
+                    center = Offset(x = 1000f, y = -300f),
+                    radius = 2500f
+                )
+            ),
         verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         HorizontalPager(
             modifier = Modifier.weight(1f),
@@ -93,9 +102,6 @@ fun OnBoardingScreen(
             }
         )
     }
-
-
-
 }
 
 @Composable
@@ -115,7 +121,7 @@ fun OnBoardingItem(items: List<OnBoardingItems>, currentPage: Int) {
         Text(
             text = items[currentPage].title,
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             textAlign = TextAlign.Center,
             fontSize = 15.sp,
             fontFamily = FontFamily(Font(R.font.poppins_extrabold)),
@@ -124,7 +130,7 @@ fun OnBoardingItem(items: List<OnBoardingItems>, currentPage: Int) {
 
         Text(
             text = items[currentPage].description,
-            color = Color.Black,
+            color = Color.White,
             textAlign = TextAlign.Center,
             fontSize = 13.sp,
             fontFamily = FontFamily(Font(R.font.poppins_regular)),
@@ -141,51 +147,80 @@ fun BottomSection(page: Int,
                   backOnClickListener: () -> Unit = {}
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                horizontal = 25.dp, vertical = 15.dp
+            ),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
+
     ){
         Indicators(size = 3, page)
         Row(){
-            NextButton(page, startOnClickListener,nextOnClickListener )
-            PreviousButton(page, backOnClickListener, skipOnClickListener)
+            LeftButton (page = page, backOnClickListener = backOnClickListener, skipOnClickListener = skipOnClickListener)
+            Spacer(modifier = Modifier.width(10.dp))
+            RightButton (page, nextOnClickListener = nextOnClickListener, startOnClickListener = startOnClickListener)
         }
 
     }
 }
 @Composable
-fun NextButton(page: Int, startOnClickListener: () -> Unit, nextOnClickListener: () -> Unit){
+fun RightButton(page: Int,
+                startOnClickListener: () -> Unit,
+                nextOnClickListener: () -> Unit
+){
 
-    if(page == LAST_PAGE){
-        TextButton(startOnClickListener) {
-            Text(text = "Mulai")
-        }
-    } else{
-        TextButton(nextOnClickListener) {
-            Text(text = "Lanjut")
-        }
+    val (text, onClick) = if (page == LAST_PAGE) {
+        "Mulai" to startOnClickListener
+    } else {
+        "Lanjut" to nextOnClickListener
+    }
+
+    Button(
+        onClick = onClick,
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = Color(0xFF1877F2),
+            contentColor = Color.White
+        ),
+        elevation = ButtonDefaults.elevation(
+            defaultElevation = 4.dp,
+            pressedElevation = 8.dp,
+            disabledElevation = 0.dp
+        ),
+        shape = RoundedCornerShape(12.dp),
+    ) {
+        Text(
+            text = text,
+            fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        )
     }
 }
 
 @Composable
-fun PreviousButton(page: Int, backOnClickListener: () -> Unit, skipOnClickListener: () -> Unit){
+fun LeftButton(
+    page: Int,
+    backOnClickListener: () -> Unit,
+    skipOnClickListener: () -> Unit
+){
 
-    if(page == LAST_PAGE){
-        TextButton(backOnClickListener) {
-            Text(text = "Kembali")
-        }
-    } else{
-        TextButton(skipOnClickListener) {
-            Text(text = "Lewati")
-        }
+    val (text, onClick) = if (page == LAST_PAGE) {
+        "Kembali" to backOnClickListener
+    } else {
+        "Lewati" to skipOnClickListener
+    }
+
+    TextButton(onClick = onClick) {
+       Text(
+           fontFamily = FontFamily(Font(R.font.poppins_bold)),
+           text = text,
+           color = Color.LightGray,
+       )
     }
 }
 
-
-
-
 @Composable
-fun RowScope.Indicators(size: Int, index: Int) {
+fun Indicators(size: Int, index: Int) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -209,7 +244,7 @@ fun Indicator(isSelected: Boolean) {
             .width(width.value)
             .clip(CircleShape)
             .background(
-                color = if (isSelected) Color(0XFFF8E2E7) else Color(0XFFF8E2E7)
+                color = if (isSelected) Color(0XFFF8F8F8) else Color(0XFFF8F8F8).copy(alpha = 0.5f)
             )
     ) {
 
@@ -226,18 +261,4 @@ fun BottomScreenPreview() {
 @Composable
 fun OnBoardingItemPreview(){
     OnBoardingItem(listOf(OnBoardingItems.FirstPage, OnBoardingItems.SecondPage, OnBoardingItems.ThirdPage),1)
-}
-@Preview(showBackground = true)
-@Composable
-fun Test(){
-    Column() {
-
-        Column() {
-            Row() {
-                Text(text = "Baris")
-            }
-            Text(text = "Kolom")
-            Text(text = "Kolom2")
-        }
-    }
 }

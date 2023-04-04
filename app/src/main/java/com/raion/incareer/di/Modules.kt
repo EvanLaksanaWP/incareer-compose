@@ -1,8 +1,8 @@
 package com.raion.incareer.di
 import com.raion.incareer.data.Repository
 import com.raion.incareer.data.UserPreference
-import com.raion.incareer.presentation.viewmodels.OnBoardingViewModel
-import com.raion.incareer.presentation.viewmodels.SplashViewModel
+import com.raion.incareer.presentation.onboarding.OnBoardingViewModel
+import com.raion.incareer.presentation.splash.SplashViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -20,6 +20,10 @@ val repositoryModule = module {
 }
 
 val viewModelModule = module {
-    viewModel { SplashViewModel(get()) }
-    viewModel{OnBoardingViewModel(get()) }
+    viewModel {
+        SplashViewModel(get())
+    }
+    viewModel{
+        OnBoardingViewModel(get())
+    }
 }

@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.chenzfall.incareer.R
 import com.raion.incareer.presentation.ui.components.LockScreenOrientation
-import com.raion.incareer.presentation.viewmodels.SplashViewModel
+import com.raion.incareer.presentation.splash.SplashViewModel
 import com.raion.incareer.util.Constants
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.getViewModel

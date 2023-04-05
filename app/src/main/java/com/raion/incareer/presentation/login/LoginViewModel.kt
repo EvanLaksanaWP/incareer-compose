@@ -18,6 +18,7 @@ class LoginViewModel(private val repository: Repository): ViewModel(){
             when (result){
                 is Resource.Success -> {
                     _loginState.send(LoginState(isSuccess = "Login Success"))
+                    repository.saveUid(result.data?.user?.uid.toString())
                 }
                 is Resource.Loading ->{
                     _loginState.send(LoginState(isLoading = true))

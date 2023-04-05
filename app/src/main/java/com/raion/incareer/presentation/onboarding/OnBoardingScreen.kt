@@ -1,5 +1,6 @@
 package com.raion.incareer.presentation.onboarding
 
+import android.content.pm.ActivityInfo
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
@@ -33,6 +34,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.raion.incareer.R
 import com.raion.incareer.presentation.navigation.Screen
+import com.raion.incareer.presentation.ui.components.LockScreenOrientation
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 
@@ -53,7 +55,9 @@ fun OnBoardingScreen(
     )
     val scope = rememberCoroutineScope()
     val pagerState = rememberPagerState()
-    
+
+    LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
     Column(
         modifier = Modifier.fillMaxSize()
             .background(

@@ -8,7 +8,7 @@ import androidx.datastore.preferences.preferencesDataStore
 object Constants{
 
     const val SPLASH_SCREEN_DURATION = 2500L
-    const val USER_PREFERENCE_NAME = "user_preference"
+    private const val USER_PREFERENCE_NAME = "user_preference"
     val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name =  USER_PREFERENCE_NAME)
 
 }

@@ -1,3 +1,4 @@
+import android.content.pm.ActivityInfo
 import android.widget.Toast
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -15,23 +16,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import com.raion.incareer.R
 import com.raion.incareer.presentation.login.LoginViewModel
-import com.raion.incareer.presentation.onboarding.OnBoardingViewModel
+import com.raion.incareer.presentation.navigation.Screen
+import com.raion.incareer.presentation.ui.components.LockScreenOrientation
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 
@@ -47,6 +46,9 @@ fun LoginScreen(
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val state = viewModel.loginState.collectAsState(initial = null)
+
+
+    LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
     EllipseBackground()
 
@@ -68,6 +70,7 @@ fun LoginScreen(
                 modifier = Modifier.width(300.dp)
             )
         }
+
         Row (Modifier.fillMaxWidth()){
             Text(
                 text = "Masuk",
@@ -75,6 +78,8 @@ fun LoginScreen(
                 fontSize = 26.sp,
             )
         }
+
+        Spacer(Modifier.height(20.dp))
 
         Column(
             modifier = Modifier
@@ -89,13 +94,6 @@ fun LoginScreen(
                 onValueChange = { newEmail ->
                     email = newEmail
                 },
-//                label = {
-//                    Text(
-//                        text = "Email",
-//                        fontFamily = FontFamily(Font(R.font.poppins_regular)),
-//                        fontSize = 12.sp
-//                    )
-//                },
                 leadingIcon = {
                     Icon(Icons.Outlined.Email, contentDescription = "Email")
                 },
@@ -114,7 +112,7 @@ fun LoginScreen(
             )
 
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
 
             //Password
@@ -123,13 +121,6 @@ fun LoginScreen(
                 onValueChange = { newPassword ->
                     password = newPassword
                 },
-//                label = {
-//                    Text(
-//                        text = "Password",
-//                        fontFamily = FontFamily(Font(R.font.poppins_regular)),
-//                        fontSize = 12.sp
-//                    )
-//                },
                 leadingIcon = {
                     Icon(Icons.Outlined.Lock, contentDescription = "Kata Sandi")
                 },
@@ -167,7 +158,7 @@ fun LoginScreen(
         ){
             TextButton(onClick = { /*TODO*/ }){
                 Text(
-                    text = "Forgot Password",
+                    text = "Lupa Kata Sandi?",
                     fontFamily = FontFamily(Font(R.font.poppins_bold)),
                     color = Color(0XFF1877F2),
                     fontSize = 12.sp,
@@ -176,7 +167,7 @@ fun LoginScreen(
             }
         }
 
-        LoginSeparator()
+        Separator()
 
         Row(
             Modifier
@@ -235,6 +226,10 @@ fun LoginScreen(
                 if(state.value?.isSuccess?.isNotEmpty() == true){
                     val success = state.value?.isSuccess
                     Toast.makeText(context, "$success", Toast.LENGTH_LONG).show()
+
+                    navController.popBackStack()
+                    navController.navigate(Screen.Home.route)
+
                 }
             }
         }
@@ -260,7 +255,10 @@ fun LoginScreen(
                 letterSpacing = 0.5.sp
             )
             TextButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.popBackStack()
+                    navController.navigate(Screen.Register.route)
+                },
                 modifier = Modifier
                     .padding(start = 0.5.dp)
                     .align(Alignment.Top)
@@ -308,7 +306,7 @@ private fun DrawScope.drawEllipse(color: Color, topLeft: Offset, size: androidx.
 
 
 @Composable
-fun LoginSeparator() {
+fun Separator() {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -341,10 +339,3 @@ fun isPasswordValid(password: String): Boolean{
 fun isEmailValid(email: String): Boolean{
     return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() && email.isNotEmpty()
 }
-
-
-//@Preview(showBackground = true)
-//@Composable
-//fun LoginScreenPreview() {
-//    LoginScreen()
-//}

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.raion.incareer.presentation.home.HomeScreen
 import com.raion.incareer.presentation.splash.SplashScreen
 import com.raion.incareer.presentation.onboarding.OnBoardingScreen
 import com.raion.incareer.presentation.registration.RegisterScreen
@@ -26,7 +27,10 @@ fun NavGraph() {
             LoginScreen(navController = navController)
         }
         composable(Screen.Register.route){
-            RegisterScreen()
+            RegisterScreen(navController = navController)
+        }
+        composable(Screen.Home.route){
+            HomeScreen()
         }
     }
 }

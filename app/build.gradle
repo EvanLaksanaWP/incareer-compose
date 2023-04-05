@@ -2,14 +2,15 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.chenzfall.incareer'
+    namespace 'com.raion.incareer'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.chenzfall.incareer"
+        applicationId "com.raion.incareer"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -55,6 +56,8 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:1.4.0"
     implementation 'androidx.compose.material:material:1.4.0'
     implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -86,5 +89,10 @@ dependencies {
 
     // Icon
     implementation "androidx.compose.material:material-icons-extended:1.4.0"
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 }

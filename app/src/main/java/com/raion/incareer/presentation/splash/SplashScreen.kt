@@ -1,4 +1,4 @@
-package com.raion.incareer.presentation.ui.screens
+package com.raion.incareer.presentation.splash
 
 import android.content.pm.ActivityInfo
 import androidx.compose.animation.core.animateFloatAsState
@@ -18,12 +18,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import com.chenzfall.incareer.R
 import com.raion.incareer.presentation.ui.components.LockScreenOrientation
-import com.raion.incareer.presentation.splash.SplashViewModel
 import com.raion.incareer.util.Constants
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.getViewModel
+import com.raion.incareer.R
 
 
 @Composable

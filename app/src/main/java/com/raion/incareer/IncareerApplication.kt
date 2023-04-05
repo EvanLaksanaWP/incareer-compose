@@ -1,9 +1,7 @@
 package com.raion.incareer
 
 import android.app.Application
-import com.raion.incareer.di.repositoryModule
-import com.raion.incareer.di.userPreferenceModule
-import com.raion.incareer.di.viewModelModule
+import com.raion.incareer.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -15,7 +13,9 @@ class IncareerApplication: Application(){
             modules(
                 userPreferenceModule,
                 repositoryModule,
-                viewModelModule
+                viewModelModule,
+                firebaseAuthModule,
+                authRepositoryImplModule
             )
         }
     }

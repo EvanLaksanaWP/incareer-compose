@@ -1,4 +1,4 @@
-package com.raion.incareer.presentation.ui.screens
+package com.raion.incareer.presentation.onboarding
 
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
@@ -31,10 +31,8 @@ import androidx.navigation.NavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.raion.incareer.presentation.onboarding.OnBoardingItems
-import com.chenzfall.incareer.R
+import com.raion.incareer.R
 import com.raion.incareer.presentation.navigation.Screen
-import com.raion.incareer.presentation.onboarding.OnBoardingViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 

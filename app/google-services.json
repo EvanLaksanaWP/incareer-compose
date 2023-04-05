@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "214930731130",
+    "project_id": "incareer-07",
+    "storage_bucket": "incareer-07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214930731130:android:e7cc5274d4ea87e5978bc3",
+        "android_client_info": {
+          "package_name": "com.raion.incareer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214930731130-19meh4hb55bo5b2ojm245e6vpsb200b3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPhgAQny4877FoS2aSXtl6tPU0Opv5p8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214930731130-19meh4hb55bo5b2ojm245e6vpsb200b3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

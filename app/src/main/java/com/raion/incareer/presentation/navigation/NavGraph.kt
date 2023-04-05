@@ -5,8 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.raion.incareer.presentation.ui.screens.SplashScreen
-import com.raion.incareer.presentation.ui.screens.OnBoardingScreen
+import com.raion.incareer.presentation.splash.SplashScreen
+import com.raion.incareer.presentation.onboarding.OnBoardingScreen
+import com.raion.incareer.presentation.registration.RegisterScreen
 
 @Composable
 fun NavGraph() {
@@ -22,7 +23,10 @@ fun NavGraph() {
             OnBoardingScreen(navController = navController)
         }
         composable(Screen.Login.route){
-            LoginScreen()
+            LoginScreen(navController = navController)
+        }
+        composable(Screen.Register.route){
+            RegisterScreen()
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.raion.incareer.presentation.onboarding
 
 import androidx.annotation.DrawableRes
-import com.chenzfall.incareer.R
+import com.raion.incareer.R
 
 sealed class OnBoardingItems (
     @DrawableRes

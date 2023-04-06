@@ -15,12 +15,11 @@ class RegisterViewModel(private val repository: Repository): ViewModel(){
     private val _registerState = Channel<RegisterState>()
     val registerState = _registerState.receiveAsFlow()
 
-    fun registerUser(email: String, password: String) = viewModelScope.launch {
-        repository.registerUser(email, password).collect{ result ->
+    fun registerUser(fullName: String, email: String, password: String) = viewModelScope.launch {
+        repository.registerUser(fullName, email, password).collect{ result ->
             when (result){
                 is Resource.Success -> {
                     _registerState.send(RegisterState(isSuccess = "Register Success"))
-
 
                 }
                 is Resource.Loading ->{

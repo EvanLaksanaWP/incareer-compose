@@ -3,7 +3,7 @@ package com.raion.incareer.data
 
 class Repository (
     private val userPreference: UserPreference,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
 ){
     fun readOnBoardingState() = userPreference.readOnBoardingState()
 
@@ -11,7 +11,7 @@ class Repository (
 
     fun loginUser(email: String, password: String) = authRepository.loginUser(email, password)
 
-    fun registerUser(email: String, password: String) = authRepository.registerUser(email, password)
+    fun registerUser(fullName: String, email: String, password: String) = authRepository.registerUser(email, password)
 
     suspend fun saveUid(uid: String) = userPreference.saveUid(uid)
 

@@ -11,9 +11,7 @@ class Repository (
 
     fun loginUser(email: String, password: String) = authRepository.loginUser(email, password)
 
-    fun registerUser(fullName: String, email: String, password: String) = authRepository.registerUser(email, password)
-
-    fun resetPassword(email: String) = authRepository.resetPassword(email)
+    fun registerUser(email: String, password: String) = authRepository.registerUser(email, password)
 
     fun resetPassword(email: String) = authRepository.resetPassword(email)
 

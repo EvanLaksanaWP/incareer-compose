@@ -1,6 +1,5 @@
 package com.raion.incareer.di
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 import com.raion.incareer.data.AuthRepository
 import com.raion.incareer.data.Repository
 import com.raion.incareer.data.UserPreference
@@ -41,6 +40,7 @@ val viewModelModule = module {
     viewModel{
         ForgotPasswordViewModel(get())
     }
+
 }
 
 val firebaseAuthModule = module {

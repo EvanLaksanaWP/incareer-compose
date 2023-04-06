@@ -30,4 +30,15 @@ class AuthRepository (private val firebaseAuth: FirebaseAuth)  {
             emit(Resource.Error(it.message.toString()))
         }
     }
+
+    fun resetPassword(email: String): Flow<Resource<Void>>{
+        return flow{
+            emit(Resource.Loading())
+            val result = firebaseAuth.sendPasswordResetEmail(email).await()
+            emit(Resource.Success(result))
+        }.catch {
+            emit(Resource.Error(it.message.toString()))
+        }
+    }
+
 }

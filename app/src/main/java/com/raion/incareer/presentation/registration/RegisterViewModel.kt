@@ -20,8 +20,6 @@ class RegisterViewModel(private val repository: Repository): ViewModel(){
             when (result){
                 is Resource.Success -> {
                     _registerState.send(RegisterState(isSuccess = "Register Success"))
-
-
                 }
                 is Resource.Loading ->{
                     _registerState.send(RegisterState(isLoading = true))

@@ -26,6 +26,7 @@ class LoginViewModel(private val repository: Repository): ViewModel(){
                 is Resource.Error ->{
                     _loginState.send(LoginState(isError = result.message))
                 }
+                else -> {}
             }
         }
     }

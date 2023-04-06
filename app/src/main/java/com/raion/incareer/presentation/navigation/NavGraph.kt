@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.raion.incareer.presentation.forgotpassword.ForgotPasswordScreen
 import com.raion.incareer.presentation.home.HomeScreen
 import com.raion.incareer.presentation.splash.SplashScreen
 import com.raion.incareer.presentation.onboarding.OnBoardingScreen
@@ -31,6 +32,9 @@ fun NavGraph() {
         }
         composable(Screen.Home.route){
             HomeScreen()
+        }
+        composable(Screen.ForgotPassword.route){
+            ForgotPasswordScreen(navController = navController)
         }
     }
 }

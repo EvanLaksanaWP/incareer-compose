@@ -13,6 +13,8 @@ class Repository (
 
     fun registerUser(fullName: String, email: String, password: String) = authRepository.registerUser(email, password)
 
+    fun resetPassword(email: String) = authRepository.resetPassword(email)
+
     suspend fun saveUid(uid: String) = userPreference.saveUid(uid)
 
     fun readUid() = userPreference.readUid

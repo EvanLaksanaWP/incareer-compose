@@ -47,7 +47,7 @@ fun ForgotPasswordScreen (
 ) {
 
     val scope: CoroutineScope = rememberCoroutineScope()
-    val state: StateFlow<Resource<Unit>> = viewModel.resetPasswordState
+    val state = viewModel.resetPasswordState.collectAsState(initial = null)
     val context: Context = LocalContext.current
 
     var email by remember{ mutableStateOf("") }
@@ -122,18 +122,7 @@ fun ForgotPasswordScreen (
                     onClick = {
                         viewModel.resetPassword(email)
 
-                        scope.launch {
-                            if (state.value is Resource.Success){
-                                Toast.makeText(context, "Email Reset Password Terikirim", Toast.LENGTH_LONG).show()
 
-                                navController.popBackStack()
-                                navController.navigate(Screen.Login.route)
-                            }
-                            else if (state.value is Resource.Error){
-                                val message = state.value.message
-                                Toast.makeText(context, "$message", Toast.LENGTH_LONG).show()
-                            }
-                        }
                     },
                     modifier  = Modifier
                         .fillMaxWidth()
@@ -149,6 +138,27 @@ fun ForgotPasswordScreen (
                         fontSize = 20.sp,
                         letterSpacing = 0.5.sp
                     )
+                }
+                LaunchedEffect(key1 = state.value?.isSuccess){
+                    scope.launch {
+                        if(state.value?.isSuccess?.isNotEmpty() == true){
+                            val success = state.value?.isSuccess
+                            Toast.makeText(context, "$success", Toast.LENGTH_LONG).show()
+
+                            navController.popBackStack()
+                            navController.navigate(Screen.Login.route)
+
+                        }
+                    }
+                }
+
+                LaunchedEffect(key1 = state.value?.isError){
+                    scope.launch {
+                        if(state.value?.isError?.isNotEmpty() == true){
+                            val error = state.value?.isError
+                            Toast.makeText(context, "$error", Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
             }
        }

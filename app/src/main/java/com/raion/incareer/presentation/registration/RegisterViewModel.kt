@@ -2,6 +2,9 @@ package com.raion.incareer.presentation.registration
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.raion.incareer.data.AuthRepository
 import com.raion.incareer.data.Repository
 import com.raion.incareer.util.Resource
@@ -14,6 +17,7 @@ class RegisterViewModel(private val repository: Repository): ViewModel(){
 
     private val _registerState = Channel<RegisterState>()
     val registerState = _registerState.receiveAsFlow()
+    private var db = Firebase.firestore
 
     fun registerUser(email: String, password: String) = viewModelScope.launch {
         repository.registerUser(email, password).collect{ result ->
@@ -31,4 +35,16 @@ class RegisterViewModel(private val repository: Repository): ViewModel(){
         }
     }
 
+    fun saveDataUser(fullName: String, email: String) = viewModelScope.launch {
+        val userMap = hashMapOf(
+            "Nama Lengkap" to fullName,
+            "Email" to email
+        )
+        val userid = FirebaseAuth.getInstance().currentUser!!.uid
+
+        db.collection("User").document(email).set(userMap)
+
+    }
+
 }
+

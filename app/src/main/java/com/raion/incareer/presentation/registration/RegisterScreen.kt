@@ -203,6 +203,7 @@ fun RegisterScreen(
             onClick = {
                 scope.launch {
                     viewModel.registerUser(email = email, password = password)
+                    viewModel.saveDataUser(fullName = fullName, email = email)
                 }
             },
             modifier  = Modifier

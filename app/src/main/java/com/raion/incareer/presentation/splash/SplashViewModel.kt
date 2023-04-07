@@ -20,7 +20,7 @@ class SplashViewModel(private val repository: Repository): ViewModel() {
             repository.readOnBoardingState().collect { isCompleted ->
                 _nextDestination.value = if (isCompleted) {
                     repository.readUid().first()?.let {
-                        Screen.Home.route
+                        Screen.Main.route
                     } ?: Screen.Login.route
                 } else {
                     Screen.OnBoarding.route

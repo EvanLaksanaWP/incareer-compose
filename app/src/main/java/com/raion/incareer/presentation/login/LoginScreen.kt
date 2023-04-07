@@ -158,7 +158,6 @@ fun LoginScreen(
                 .fillMaxWidth()
         ){
             TextButton(onClick = {
-                navController.popBackStack()
                 navController.navigate(Screen.ForgotPassword.route)
             }){
                 Text(
@@ -230,7 +229,7 @@ fun LoginScreen(
                         Toast.makeText(context, "$success", Toast.LENGTH_LONG).show()
 
                         navController.popBackStack()
-                        navController.navigate(Screen.Home.route)
+                        navController.navigate(Screen.Main.route)
 
                     }
                 }

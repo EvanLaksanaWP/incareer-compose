@@ -43,8 +43,6 @@ class RegisterViewModel(private val repository: Repository): ViewModel(){
         val userid = FirebaseAuth.getInstance().currentUser!!.uid
 
         db.collection("User").document(email).set(userMap)
-
     }
-
 }
 

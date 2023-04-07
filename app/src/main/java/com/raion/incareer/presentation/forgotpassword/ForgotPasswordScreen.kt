@@ -139,6 +139,27 @@ fun ForgotPasswordScreen (
                         letterSpacing = 0.5.sp
                     )
                 }
+                LaunchedEffect(key1 = state.value?.isSuccess){
+                    scope.launch {
+                        if(state.value?.isSuccess?.isNotEmpty() == true){
+                            val success = state.value?.isSuccess
+                            Toast.makeText(context, "$success", Toast.LENGTH_LONG).show()
+
+                            navController.popBackStack()
+                            navController.navigate(Screen.ForgotPasswordConfirm.route)
+
+                        }
+                    }
+                }
+
+                LaunchedEffect(key1 = state.value?.isError){
+                    scope.launch {
+                        if(state.value?.isError?.isNotEmpty() == true){
+                            val error = state.value?.isError
+                            Toast.makeText(context, "$error", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }
        }
     }

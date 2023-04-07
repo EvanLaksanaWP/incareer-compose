@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.raion.incareer.presentation.company.CompanyScreen
 import com.raion.incareer.presentation.forgotpassword.ForgotPasswordScreen
+import com.raion.incareer.presentation.forgotpasswordconfirm.ForgotPasswordConfirmScreen
 import com.raion.incareer.presentation.home.HomeScreen
 import com.raion.incareer.presentation.main.MainScreen
 import com.raion.incareer.presentation.myjob.MyJob
@@ -36,6 +37,9 @@ fun Navigation() {
         }
         composable(Screen.ForgotPassword.route){
             ForgotPasswordScreen(navController = navController)
+        }
+        composable(Screen.ForgotPasswordConfirm.route){
+            ForgotPasswordConfirmScreen(navController = navController)
         }
         composable(Screen.Main.route){
             MainScreen()

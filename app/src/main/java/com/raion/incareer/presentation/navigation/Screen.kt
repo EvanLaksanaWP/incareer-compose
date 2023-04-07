@@ -7,6 +7,7 @@ sealed class Screen(val route: String){
     object Login: Screen("login_screen")
     object Register: Screen ("register_screen")
     object ForgotPassword: Screen ("forgot_password_screen")
+    object ForgotPasswordConfirm: Screen ("forgot_password_confirm_screen")
     object Home: Screen ("home_screen")
     object MyJob: Screen ("my_jobs_screen")
     object Company: Screen ("company_screen")

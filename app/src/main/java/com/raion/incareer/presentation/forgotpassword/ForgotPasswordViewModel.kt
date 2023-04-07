@@ -21,7 +21,7 @@ class ForgotPasswordViewModel(private val repository: Repository): ViewModel(){
             repository.resetPassword(email).collect { result ->
                 when (result){
                     is Resource.Success -> {
-                        _resetPasswordState.send(ResetPasswordState(isSuccess = "Reset password email has been sent successfully"))
+                        _resetPasswordState.send(ResetPasswordState(isSuccess = "Success"))
                     }
                     is Resource.Loading -> {
                         _resetPasswordState.send(ResetPasswordState(isLoading = true))

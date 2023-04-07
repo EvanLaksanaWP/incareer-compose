@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
 import com.raion.incareer.R
 import com.raion.incareer.presentation.navigation.Screen
 import com.raion.incareer.presentation.ui.components.LockScreenOrientation
@@ -989,24 +990,16 @@ fun ProfileScreen(
 
             }
 
-
-
-
-
-
-
-
-
-
-
             Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .padding(bottom = 80.dp),
                 horizontalAlignment = Alignment.End
             ){
                 Button(
                     onClick = {
                         scope.launch {
+                            FirebaseAuth.getInstance().signOut()
                         }
                     },
                     modifier = Modifier

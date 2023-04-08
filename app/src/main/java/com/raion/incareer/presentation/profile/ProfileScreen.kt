@@ -322,6 +322,7 @@ fun ProfileScreen(
                     ),
                 elevation = 5.dp,
                 shape = RoundedCornerShape(20.dp),
+                backgroundColor = Color(0xFF1877F2)
 
                 ) {
                 Text(
@@ -335,7 +336,7 @@ fun ProfileScreen(
                             horizontal = 10.dp
                         ),
                     textAlign = TextAlign.Center,
-                    color = Color(0xFF1877F2)
+                    color = Color.White
                 )
 
             }
@@ -450,7 +451,7 @@ fun ProfileScreen(
                     )
                     .padding(horizontal = 22.dp),
                 shape = RoundedCornerShape(20.dp),
-                backgroundColor = Color(0xFFF0F0F0),
+                backgroundColor = Color(0xFFECF3F8),
                 elevation = 3.dp
 
             ) {
@@ -517,7 +518,7 @@ fun ProfileScreen(
                         ),
                     elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
-                    backgroundColor = Color(0xFFF0F0F0),
+
 
                     ) {
                     Text(
@@ -549,7 +550,7 @@ fun ProfileScreen(
 
                     elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
-                    backgroundColor = Color(0xFFF0F0F0),
+
 
 
                     ) {
@@ -580,7 +581,7 @@ fun ProfileScreen(
                         ),
                     elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
-                    backgroundColor = Color(0xFFF0F0F0),
+
 
                     ) {
 
@@ -618,7 +619,7 @@ fun ProfileScreen(
                         ),
                     elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
-                    backgroundColor = Color(0xFFF0F0F0),
+
 
                     ) {
                     Text(
@@ -650,7 +651,7 @@ fun ProfileScreen(
 
                     elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
-                    backgroundColor = Color(0xFFF0F0F0),
+
 
 
                     ) {
@@ -681,7 +682,7 @@ fun ProfileScreen(
                         ),
                     elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
-                    backgroundColor = Color(0xFFF0F0F0),
+
 
                     ) {
 
@@ -745,7 +746,7 @@ fun ProfileScreen(
                     .padding(horizontal = 22.dp),
 
                 shape = RoundedCornerShape(20.dp),
-                backgroundColor = Color(0xFFF0F0F0),
+
                 elevation = 3.dp,
             ) {
                 Row(
@@ -855,7 +856,7 @@ fun ProfileScreen(
                     .padding(horizontal = 22.dp),
 
                 shape = RoundedCornerShape(20.dp),
-                backgroundColor = Color(0xFFF0F0F0),
+
                 elevation = 3.dp,
             ) {
                 Row(
@@ -922,7 +923,7 @@ fun ProfileScreen(
                     .padding(horizontal = 22.dp),
 
                 shape = RoundedCornerShape(20.dp),
-                backgroundColor = Color(0xFFF0F0F0),
+
                 elevation = 3.dp,
             ) {
                 Row(
@@ -1021,7 +1022,7 @@ fun ProfileScreen(
                     .padding(horizontal = 22.dp),
                 elevation = 3.dp,
                 shape = RoundedCornerShape(20.dp),
-                backgroundColor = Color(0xFFF0F0F0),
+
             ) {
                 Row(
                     Modifier

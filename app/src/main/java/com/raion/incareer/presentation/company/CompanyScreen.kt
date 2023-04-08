@@ -12,7 +12,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterStart
+import androidx.compose.ui.Alignment.Companion.End
+import androidx.compose.ui.Alignment.Companion.TopEnd
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -54,12 +57,28 @@ fun CompanyScreen() {
                     colors = listOf(Color(0xFF388BF3), Color(0xFFF8F8F8)),
 
                     )
-            ),
-        contentAlignment = Alignment.TopCenter
+            )
+            .padding(top = 20.dp, end = 25.dp),
+        contentAlignment = Alignment.TopEnd
     ) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+
+        ) {
+
+        }
+        Image(
+            painter = painterResource(id = R.drawable.others_icon),
+            contentDescription = "Others Icon",
+            modifier = Modifier.size(40.dp),
+            alignment = TopEnd
+
+        )
 
     }
     LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+
 
     Column(modifier = Modifier
         .fillMaxSize()
@@ -73,7 +92,7 @@ fun CompanyScreen() {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(end = 100.dp),
+                        .padding(end = 0.dp),
                     horizontalArrangement = Arrangement.Center,
                 ) {
 
@@ -120,6 +139,8 @@ fun CompanyScreen() {
                         )
                     }
 
+
+
                 }
             
             Row(modifier = Modifier
@@ -150,7 +171,7 @@ fun CompanyScreen() {
                         painter = painterResource(id = R.drawable.bell_icon),
                         contentDescription = "Bell Icon",
                         modifier = Modifier
-                            .size(50.dp)
+                            .size(45.dp)
                     )
                 }
 

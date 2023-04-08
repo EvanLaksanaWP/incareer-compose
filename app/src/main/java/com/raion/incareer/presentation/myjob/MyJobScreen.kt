@@ -48,9 +48,23 @@ fun MyJob() {
                     colors = listOf(Color(0xFF388BF3), Color(0xFFF8F8F8)),
 
                     )
-            ),
-        contentAlignment = Alignment.TopCenter
+            )
+            .padding(top = 20.dp, end = 25.dp),
+        contentAlignment = Alignment.TopEnd
     ) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+
+        ) {
+
+        }
+        Image(
+            painter = painterResource(id = R.drawable.others_icon),
+            contentDescription = "Others Icon",
+            modifier = Modifier.size(40.dp),
+            alignment = Alignment.TopEnd
+
+        )
 
     }
     LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
@@ -150,7 +164,7 @@ fun MyJob() {
                         painter = painterResource(id = R.drawable.bell_icon),
                         contentDescription = "Bell Icon",
                         modifier = Modifier
-                            .size(50.dp)
+                            .size(45.dp)
                     )
                 }
 

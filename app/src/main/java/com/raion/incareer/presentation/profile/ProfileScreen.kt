@@ -100,7 +100,9 @@ fun ProfileScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 15.dp)
+                    .padding(top = 10.dp),
+                verticalArrangement = Arrangement.Center
+
             ) {
 
                 Text(
@@ -111,8 +113,13 @@ fun ProfileScreen(
 
                 Text(
                     text = "UI/UX Designer",
-                    fontFamily = FontFamily(Font(R.font.poppins_medium)),
-                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_regular)),
+                    fontSize = 11.sp,
+                )
+                Text(
+                    text = "Universitas Brawijaya",
+                    fontFamily = FontFamily(Font(R.font.poppins_regular)),
+                    fontSize = 11.sp,
                 )
             }
 
@@ -139,11 +146,11 @@ fun ProfileScreen(
 
                 ) {
                 Text(
-                    text = "UI/UX Designer Intern at PT. Bank CIMB Niaga Tbk | Google DSC Core Team UI/UX Design",
+                    text = "Saya seorang lulusan Teknik Informatika dari Universitas Brawijaya. Saya adalah individu yang memiliki hasrat keinginan dalam bidang UI/UX designer. Saya berharap mendapatkan pengalaman lebih lagi dalam bidang UI/UX.\n",
                     fontFamily = FontFamily(Font(R.font.poppins_regular)),
                     fontSize = 12.sp,
                     modifier = Modifier
-                        .width(250.dp)
+                        .width(280.dp)
                         .padding(
                             vertical = 10.dp,
                             horizontal = 10.dp
@@ -156,8 +163,10 @@ fun ProfileScreen(
 
             Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .fillMaxWidth()
+                    .height(140.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceEvenly
 
 
             ) {
@@ -168,51 +177,6 @@ fun ProfileScreen(
                             Color.Transparent
                         ),
                     elevation = 5.dp,
-                    shape = RoundedCornerShape(20.dp),
-
-                    ) {
-
-                    Row(
-                        Modifier
-                            .wrapContentSize()
-                            .padding(start = 5.dp)
-                    ) {
-
-                        Image(
-                            painter = painterResource(id = R.drawable.logo_ub),
-                            contentDescription = "Logo Univ",
-                            modifier = Modifier
-                                .size(30.dp)
-                                .padding(vertical = 4.dp),
-
-                            )
-
-                        Text(
-                            text = "Universitas Brawijaya",
-                            fontFamily = FontFamily(Font(R.font.poppins_regular)),
-                            fontSize = 10.sp,
-                            modifier = Modifier
-                                .width(80.dp)
-                                .padding(
-                                    vertical = 0.dp,
-                                    horizontal = 4.dp
-                                ),
-
-                            )
-
-                    }
-
-                }
-
-                Spacer(Modifier.height(8.dp))
-
-                Card(
-                    modifier = Modifier
-                        .wrapContentSize()
-                        .background(
-                            Color.Transparent
-                        ),
-                    elevation = 5.dp,
 
                     shape = RoundedCornerShape(20.dp),
 
@@ -220,7 +184,8 @@ fun ProfileScreen(
                     Row(
                         Modifier
                             .wrapContentSize()
-                            .padding(start = 5.dp)
+                            .padding(start = 20.dp),
+                        horizontalArrangement = Arrangement.Center
                     ) {
 
                         Image(
@@ -247,50 +212,44 @@ fun ProfileScreen(
                     }
                 }
 
-            }
-        }
-
-        Spacer(Modifier.height(20.dp))
-
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 10.dp),
-            horizontalArrangement = Arrangement.SpaceAround
-        ) {
-            Card(
-                modifier = Modifier
-                    .wrapContentSize()
-                    .background(
-                        Color.Transparent
-                    ),
+                Card(
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .background(
+                                Color.Transparent
+                            ),
                 elevation = 5.dp,
+
                 shape = RoundedCornerShape(20.dp),
 
                 ) {
                 Row(
                     Modifier
                         .wrapContentSize()
-                        .padding(start = 15.dp)
+                        .padding(start = 20.dp),
+                    horizontalArrangement = Arrangement.Center
                 ) {
 
                     Image(
                         painter = painterResource(id = R.drawable.gmail_icon),
                         contentDescription = "Logo Gmail",
                         modifier = Modifier
-                            .size(25.dp)
-                            .padding(vertical = 4.dp),
+                            .size(32.dp)
+                            .padding(
+                                vertical = 5.dp,
+                                horizontal = 5.dp
+                            ),
                     )
 
                     Text(
-                        text = "celine@gmail.com",
+                        text = "Email",
                         fontFamily = FontFamily(Font(R.font.poppins_regular)),
-                        fontSize = 10.sp,
+                        fontSize = 12.sp,
                         modifier = Modifier
-                            .width(125.dp)
+                            .width(80.dp)
                             .padding(
-                                vertical = 4.dp,
-                                horizontal = 10.dp
+                                vertical = 6.dp,
+                                horizontal = 4.dp
                             ),
 
                         )
@@ -298,50 +257,55 @@ fun ProfileScreen(
                 }
             }
 
-            Spacer(Modifier.width(20.dp))
-
-            Card(
-                modifier = Modifier
-                    .wrapContentSize()
-                    .background(
-                        Color.Transparent
-                    ),
-                elevation = 5.dp,
-                shape = RoundedCornerShape(20.dp),
-
-                ) {
-                Row(
-                    Modifier
+                Card(
+                    modifier = Modifier
                         .wrapContentSize()
-                        .padding(start = 15.dp)
-                ) {
+                        .background(
+                            Color.Transparent
+                        ),
+                    elevation = 5.dp,
 
-                    Image(
-                        painter = painterResource(id = R.drawable.phone_icon),
-                        contentDescription = "Logo Phone",
-                        modifier = Modifier
-                            .size(25.dp)
-                            .padding(vertical = 4.dp),
-                    )
+                    shape = RoundedCornerShape(20.dp),
 
-                    Text(
-                        text = "+62823277382324",
-                        fontFamily = FontFamily(Font(R.font.poppins_regular)),
-                        fontSize = 10.sp,
-                        modifier = Modifier
-                            .width(125.dp)
-                            .padding(
-                                vertical = 4.dp,
-                                horizontal = 5.dp
-                            ),
+                    ) {
+                    Row(
+                        Modifier
+                            .wrapContentSize()
+                            .padding(start = 20.dp),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
 
+                        Image(
+                            painter = painterResource(id = R.drawable.phone_icon),
+                            contentDescription = "Logo Phone",
+                            modifier = Modifier
+                                .size(32.dp)
+                                .padding(
+                                    vertical = 5.dp,
+                                    horizontal = 5.dp
+                                ),
                         )
 
+                        Text(
+                            text = "Telepon",
+                            fontFamily = FontFamily(Font(R.font.poppins_regular)),
+                            fontSize = 12.sp,
+                            modifier = Modifier
+                                .width(80.dp)
+                                .padding(
+                                    vertical = 6.dp,
+                                    horizontal = 4.dp
+                                ),
+
+                            )
+
+                    }
                 }
+
             }
         }
 
-        Spacer(Modifier.height(20.dp))
+        Spacer(Modifier.height(40.dp))
 
         Row(
             Modifier
@@ -487,7 +451,7 @@ fun ProfileScreen(
                     )
             }
 
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(2.dp))
 
             Row(Modifier.fillMaxWidth()) {
                 Text(
@@ -719,11 +683,12 @@ fun ProfileScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        Color(0xF0F0F0)
+                        Color.Transparent
                     )
                     .padding(horizontal = 22.dp),
-
+                backgroundColor = Color.Transparent,
                 shape = RoundedCornerShape(20.dp),
+                elevation = 0.dp
             ) {
                 Row(
                     Modifier
@@ -810,16 +775,18 @@ fun ProfileScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        Color(0xF0F0F0)
+                        Color.Transparent
                     )
                     .padding(horizontal = 22.dp),
-
+                backgroundColor = Color.Transparent,
                 shape = RoundedCornerShape(20.dp),
+                elevation = 0.dp
             ) {
                 Row(
                     Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 15.dp),
+
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(
@@ -874,11 +841,12 @@ fun ProfileScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        Color(0xF0F0F0)
+                        Color.Transparent
                     )
                     .padding(horizontal = 22.dp),
-
+                backgroundColor = Color.Transparent,
                 shape = RoundedCornerShape(20.dp),
+                elevation = 0.dp
             ) {
                 Row(
                     Modifier
@@ -969,7 +937,7 @@ fun ProfileScreen(
 
                     Column(
                         modifier = Modifier
-                            .padding(vertical = 10.dp)
+                            .padding(vertical = 4.dp)
                             .fillMaxWidth()
                     ) {
                         Text(
@@ -989,6 +957,7 @@ fun ProfileScreen(
                             text = "Tingkat fasih atau bahasa asli",
                             fontFamily = FontFamily(Font(R.font.poppins_regular)),
                             fontSize = 14.sp,
+                            color = Color(0xFF979797),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(
@@ -1003,6 +972,8 @@ fun ProfileScreen(
                 }
 
             }
+            
+            Spacer(Modifier.height(10.dp))
 
             Column(
                 modifier = Modifier

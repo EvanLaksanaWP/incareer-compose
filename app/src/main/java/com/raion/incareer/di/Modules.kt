@@ -4,6 +4,7 @@ import com.raion.incareer.data.AuthRepository
 import com.raion.incareer.data.Repository
 import com.raion.incareer.data.UserPreference
 import com.raion.incareer.presentation.forgotpassword.ForgotPasswordViewModel
+import com.raion.incareer.presentation.home.HomeViewModel
 import com.raion.incareer.presentation.login.LoginViewModel
 import com.raion.incareer.presentation.onboarding.OnBoardingViewModel
 import com.raion.incareer.presentation.registration.RegisterViewModel
@@ -40,6 +41,11 @@ val viewModelModule = module {
     viewModel{
         ForgotPasswordViewModel(get())
     }
+    viewModel{
+        HomeViewModel()
+    }
+
+
 
 }
 

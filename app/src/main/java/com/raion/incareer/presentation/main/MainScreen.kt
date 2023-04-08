@@ -28,6 +28,7 @@ fun MainScreen() {
                 ),
                 navController = navController,
                 onItemClick = {
+                    navController.popBackStack()
                     navController.navigate(it.route)
                 },
             )

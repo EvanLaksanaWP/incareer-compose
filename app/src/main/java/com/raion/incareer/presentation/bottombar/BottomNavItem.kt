@@ -23,12 +23,12 @@ sealed class BottomNavItem(
     )
     object Company: BottomNavItem(
         route = "company_screen",
-        title = "Home",
+        title = "Company",
         image = R.drawable.company_icon
     )
     object Profile: BottomNavItem(
         route = "profile_screen",
-        title = "Home",
+        title = "Profile",
         image = R.drawable.profile_icon
     )
 }

@@ -1,5 +1,9 @@
 package com.raion.incareer.data
 
+import com.raion.incareer.data.dummy.Company
+import com.raion.incareer.data.dummy.Job
+import com.raion.incareer.data.dummy.User
+
 
 class Repository (
     private val userPreference: UserPreference,

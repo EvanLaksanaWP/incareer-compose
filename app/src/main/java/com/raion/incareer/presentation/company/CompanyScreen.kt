@@ -93,12 +93,25 @@ fun CompanyScreen() {
                         verticalArrangement = Arrangement.Center
 
                     ) {
-                        Text(
-                            text = "Halo ",
-                            fontFamily = FontFamily(Font(R.font.poppins_semibold)),
-                            fontSize = 15.sp,
-                            color = Color(0xFF555353)
-                        )
+                        Row() {
+                            Text(
+                                text = "Halo ",
+                                fontFamily = FontFamily(Font(R.font.poppins_semibold)),
+                                fontSize = 15.sp,
+                                color = Color(0xFF555353)
+                            )
+
+                            Image(
+                                painter = painterResource(id = R.drawable.halo_icon),
+                                contentDescription = "Halo Icon",
+                                modifier = Modifier
+                                    .size(25.dp)
+                                    .padding(bottom = 3.dp, end = 10.dp)
+
+                            )
+
+
+                        }
 
                         Text(
                             text = "Elang Muh I ",

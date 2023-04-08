@@ -410,7 +410,12 @@ fun ProfileScreen(
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
 
 
-            Row(Modifier.fillMaxWidth()) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(end = 20.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = "Ringkasan",
                     fontFamily = FontFamily(Font(R.font.poppins_medium)),
@@ -418,11 +423,23 @@ fun ProfileScreen(
                     modifier = Modifier
                         .width(125.dp)
                         .padding(
-                            vertical = 10.dp,
                             horizontal = 20.dp
-                        ),
+                        )
+                        .padding(bottom = 10.dp),
 
                     )
+                
+                Spacer(Modifier.height(10.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.edit_icon),
+                    contentDescription = "Edit Icon",
+                    modifier = Modifier
+                        .size(20.dp)
+                        ,
+                    alignment = Alignment.CenterEnd
+                )
+
             }
 
             Card(
@@ -434,11 +451,11 @@ fun ProfileScreen(
                     .padding(horizontal = 22.dp),
                 shape = RoundedCornerShape(20.dp),
                 backgroundColor = Color(0xFFF0F0F0),
-                elevation = 0.dp
+                elevation = 3.dp
 
             ) {
                 Text(
-                    text = "UI/UX Designer Intern at PT. Bank CIMB Niaga Tbk | Google DSC Core Team UI/UX Design",
+                    text = "Seseorang dengan keterbatasan fisik bagian kedua kaki yang menggunakan alat bantu berupa kursi roda dalam melakukan aktivitas. Dapat melakukan kegiatan pribadi secara normal tanpa bantuan orang lain. Memiliki minat tinggi pada bidang produk desain dan produk manajer.",
                     fontFamily = FontFamily(Font(R.font.poppins_regular)),
                     fontSize = 12.sp,
                     modifier = Modifier
@@ -451,9 +468,14 @@ fun ProfileScreen(
                     )
             }
 
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(12.dp))
 
-            Row(Modifier.fillMaxWidth()) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(end = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = "Minat",
                     fontFamily = FontFamily(Font(R.font.poppins_medium)),
@@ -461,11 +483,23 @@ fun ProfileScreen(
                     modifier = Modifier
                         .width(125.dp)
                         .padding(
-                            vertical = 10.dp,
                             horizontal = 20.dp
-                        ),
+                        )
+                        .padding(bottom = 10.dp),
 
                     )
+
+                Spacer(Modifier.height(10.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.edit_icon),
+                    contentDescription = "Edit Icon",
+                    modifier = Modifier
+                        .size(20.dp)
+                    ,
+                    alignment = Alignment.CenterEnd
+                )
+
             }
 
             Row(
@@ -481,12 +515,13 @@ fun ProfileScreen(
                         .background(
                             Color.White
                         ),
-                    elevation = 5.dp,
+                    elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
+                    backgroundColor = Color(0xFFF0F0F0),
 
                     ) {
                     Text(
-                        text = "UI/UX Designer",
+                        text = "Desainer UI/UX",
                         fontFamily = FontFamily(Font(R.font.poppins_regular)),
                         fontSize = 11.sp,
                         modifier = Modifier
@@ -512,14 +547,15 @@ fun ProfileScreen(
                             bottom = 5.dp
                         ),
 
-                    elevation = 5.dp,
+                    elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
+                    backgroundColor = Color(0xFFF0F0F0),
 
 
                     ) {
 
                     Text(
-                        text = "Programmer",
+                        text = "Pemrogram",
                         fontFamily = FontFamily(Font(R.font.poppins_regular)),
                         fontSize = 11.sp,
                         modifier = Modifier
@@ -542,13 +578,14 @@ fun ProfileScreen(
                         .background(
                             Color.White
                         ),
-                    elevation = 5.dp,
+                    elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
+                    backgroundColor = Color(0xFFF0F0F0),
 
                     ) {
 
                     Text(
-                        text = "",
+                        text = "Manajer",
                         fontFamily = FontFamily(Font(R.font.poppins_regular)),
                         fontSize = 11.sp,
                         modifier = Modifier
@@ -579,8 +616,9 @@ fun ProfileScreen(
                         .background(
                             Color.White
                         ),
-                    elevation = 5.dp,
+                    elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
+                    backgroundColor = Color(0xFFF0F0F0),
 
                     ) {
                     Text(
@@ -610,8 +648,9 @@ fun ProfileScreen(
                             bottom = 5.dp
                         ),
 
-                    elevation = 5.dp,
+                    elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
+                    backgroundColor = Color(0xFFF0F0F0),
 
 
                     ) {
@@ -640,8 +679,9 @@ fun ProfileScreen(
                         .background(
                             Color.White
                         ),
-                    elevation = 5.dp,
+                    elevation = 3.dp,
                     shape = RoundedCornerShape(20.dp),
+                    backgroundColor = Color(0xFFF0F0F0),
 
                     ) {
 
@@ -662,9 +702,14 @@ fun ProfileScreen(
                 }
             }
 
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(20.dp))
 
-            Row(Modifier.fillMaxWidth()) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(end = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = "Pendidikan",
                     fontFamily = FontFamily(Font(R.font.poppins_medium)),
@@ -672,11 +717,23 @@ fun ProfileScreen(
                     modifier = Modifier
                         .width(125.dp)
                         .padding(
-                            vertical = 10.dp,
                             horizontal = 20.dp
-                        ),
+                        )
+                        .padding(bottom = 10.dp),
 
                     )
+
+                Spacer(Modifier.height(10.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.edit_icon),
+                    contentDescription = "Edit Icon",
+                    modifier = Modifier
+                        .size(20.dp)
+                    ,
+                    alignment = Alignment.CenterEnd
+                )
+
             }
 
             Card(
@@ -686,9 +743,10 @@ fun ProfileScreen(
                         Color.Transparent
                     )
                     .padding(horizontal = 22.dp),
-                backgroundColor = Color.Transparent,
+
                 shape = RoundedCornerShape(20.dp),
-                elevation = 0.dp
+                backgroundColor = Color(0xFFF0F0F0),
+                elevation = 3.dp,
             ) {
                 Row(
                     Modifier
@@ -754,21 +812,38 @@ fun ProfileScreen(
 
             }
 
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(20.dp))
 
-            Row(Modifier.fillMaxWidth()) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(end = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = "Penghargaan",
                     fontFamily = FontFamily(Font(R.font.poppins_medium)),
                     fontSize = 15.sp,
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .width(160.dp)
                         .padding(
-                            vertical = 10.dp,
                             horizontal = 20.dp
-                        ),
+                        )
+                        .padding(bottom = 10.dp),
 
                     )
+
+                Spacer(Modifier.height(10.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.edit_icon),
+                    contentDescription = "Edit Icon",
+                    modifier = Modifier
+                        .size(20.dp)
+                    ,
+                    alignment = Alignment.CenterEnd
+                )
+
             }
 
             Card(
@@ -778,9 +853,10 @@ fun ProfileScreen(
                         Color.Transparent
                     )
                     .padding(horizontal = 22.dp),
-                backgroundColor = Color.Transparent,
+
                 shape = RoundedCornerShape(20.dp),
-                elevation = 0.dp
+                backgroundColor = Color(0xFFF0F0F0),
+                elevation = 3.dp,
             ) {
                 Row(
                     Modifier
@@ -844,9 +920,10 @@ fun ProfileScreen(
                         Color.Transparent
                     )
                     .padding(horizontal = 22.dp),
-                backgroundColor = Color.Transparent,
+
                 shape = RoundedCornerShape(20.dp),
-                elevation = 0.dp
+                backgroundColor = Color(0xFFF0F0F0),
+                elevation = 3.dp,
             ) {
                 Row(
                     Modifier
@@ -901,21 +978,38 @@ fun ProfileScreen(
 
             }
 
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(20.dp))
 
-            Row(Modifier.fillMaxWidth()) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(end = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = "Keahlian Bahasa",
                     fontFamily = FontFamily(Font(R.font.poppins_medium)),
                     fontSize = 15.sp,
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .width(190.dp)
                         .padding(
-                            vertical = 10.dp,
                             horizontal = 20.dp
-                        ),
+                        )
+                        .padding(bottom = 10.dp),
 
                     )
+
+                Spacer(Modifier.height(10.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.edit_icon),
+                    contentDescription = "Edit Icon",
+                    modifier = Modifier
+                        .size(20.dp)
+                    ,
+                    alignment = Alignment.CenterEnd
+                )
+
             }
 
             Card(
@@ -927,6 +1021,7 @@ fun ProfileScreen(
                     .padding(horizontal = 22.dp),
                 elevation = 3.dp,
                 shape = RoundedCornerShape(20.dp),
+                backgroundColor = Color(0xFFF0F0F0),
             ) {
                 Row(
                     Modifier

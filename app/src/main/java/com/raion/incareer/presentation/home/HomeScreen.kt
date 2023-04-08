@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -88,8 +89,10 @@ fun BottomList(viewModel: HomeViewModel) {
         modifier = Modifier
             .padding(horizontal = 15.dp)
             .background(
-                Brush.verticalGradient(
-                    listOf(Color(0XFF1877F2), Color.Transparent),
+                Brush.radialGradient(
+                    listOf(Color.White, Color(0xFF82AAE3)),
+                    radius = 1000f,
+                    center = Offset(x = 0f, y = 1000f)
                 )
             )
             .fillMaxWidth(),
@@ -433,7 +436,7 @@ fun JobListVertical(jobs: List<Job>) {
     ){
         items(jobs.size){index ->
             val aJob = jobs[index]
-            SummaryCard(job = aJob)
+            JobCard(job = aJob)
         }
     }
 }
@@ -572,11 +575,12 @@ fun JobCard(job: Job, onClickItem: ()-> Unit = {}){
     val salary by remember { mutableStateOf(job.salary) }
     val slot by remember { mutableStateOf(job.slot) }
     val locationType by remember { mutableStateOf(job.locationType) }
+    val location by remember { mutableStateOf(job.location) }
     
     Card(
         modifier = Modifier
-            .padding(0.dp)
-            .width(200.dp)
+            .padding(horizontal = 10.dp)
+            .fillMaxWidth()
             .height(230.dp)
             .padding(10.dp),
         shape = RoundedCornerShape(10.dp),
@@ -588,27 +592,6 @@ fun JobCard(job: Job, onClickItem: ()-> Unit = {}){
                 .fillMaxSize()
                 .padding(10.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(imageVector = Icons.Default.Person,
-                    contentDescription = "orang"
-                )
-                Spacer(Modifier.width(5.dp))
-                Text(
-                    text = "$slot slot tersisa",
-                    modifier = Modifier
-                        .background(
-                            color = Color(0XFF93C2FF),
-                            shape = RoundedCornerShape(5.dp)
-                        )
-                        .padding(2.dp),
-                    fontSize = 10.sp,
-                    fontFamily = FontFamily(Font(R.font.poppins_regular))
-                )
-            }
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -671,7 +654,7 @@ fun JobCard(job: Job, onClickItem: ()-> Unit = {}){
                 Spacer(Modifier.width(5.dp))
 
                 Text(
-                    text = locationType,
+                    text = location,
                     fontFamily = FontFamily(Font(R.font.poppins_regular)),
                     fontSize = 10.sp
                 )
@@ -716,6 +699,23 @@ fun JobCard(job: Job, onClickItem: ()-> Unit = {}){
                     text = salary,
                     fontFamily = FontFamily(Font(R.font.poppins_regular)),
                     fontSize = 10.sp
+                )
+            }
+            
+            Spacer(modifier = Modifier.height(5.dp))
+
+            Row(){
+                Text(
+                    text = locationType,
+                    fontFamily = FontFamily(Font(R.font.poppins_semibold)),
+                    fontSize = 10.sp,
+                    color = Color(0XFF00359E),
+                    modifier = Modifier
+                        .background(
+                            color = Color(0XFFBFEAF5),
+                            shape = RoundedCornerShape(11.dp),
+                        )
+                        .padding(4.dp)
                 )
             }
         }

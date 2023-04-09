@@ -40,7 +40,6 @@ class RegisterViewModel(private val repository: Repository): ViewModel(){
             "Nama Lengkap" to fullName,
             "Email" to email
         )
-        val userid = FirebaseAuth.getInstance().currentUser!!.uid
 
         db.collection("User").document(email).set(userMap)
     }

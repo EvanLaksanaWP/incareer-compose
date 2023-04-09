@@ -58,7 +58,7 @@ fun LoginScreen(
             .padding(top = 175.dp)
             .padding(horizontal = 20.dp)
             .fillMaxSize()
-        ,
+            .verticalScroll(rememberScrollState()),
     ) {
         Row(modifier = Modifier
             .fillMaxWidth()

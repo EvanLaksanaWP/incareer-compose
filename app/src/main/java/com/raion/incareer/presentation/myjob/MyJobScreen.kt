@@ -39,38 +39,19 @@ fun MyJob() {
 
     }
 
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(300.dp)
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(Color(0xFF388BF3), Color(0xFFF8F8F8)),
 
-                    )
-            )
-            .padding(top = 20.dp, end = 25.dp),
-        contentAlignment = Alignment.TopEnd
-    ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-
-        ) {
-
-        }
-        Image(
-            painter = painterResource(id = R.drawable.others_icon),
-            contentDescription = "Others Icon",
-            modifier = Modifier.size(40.dp),
-            alignment = Alignment.TopEnd
-
-        )
-
-    }
     LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
     Column(modifier = Modifier
         .fillMaxSize()
+        .background(
+            Brush.verticalGradient(
+                listOf(Color(0XFF1877F2), Color.Transparent),
+                startY = -250f,
+                endY = 650f,
+
+                )
+        )
 
     ) {
         Column(
@@ -82,10 +63,9 @@ fun MyJob() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(end = 100.dp),
+                    .padding(end = 20.dp),
                 horizontalArrangement = Arrangement.Center,
             ) {
-
 
                 Image(
                     painter = painterResource(id = R.drawable.profile_picture_dummy),
@@ -97,7 +77,7 @@ fun MyJob() {
 
                 Column(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .wrapContentSize()
                         .padding(top = 3.dp),
                     verticalArrangement = Arrangement.Center
 
@@ -122,13 +102,21 @@ fun MyJob() {
 
                     }
 
-
                     Text(
                         text = "Elang Muh I ",
                         fontFamily = FontFamily(Font(R.font.poppins_semibold)),
                         fontSize = 16.sp,
                     )
                 }
+                Spacer(Modifier.width(200.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.others_icon),
+                    contentDescription = "Others Icon",
+                    modifier = Modifier.size(40.dp),
+
+                    )
+
 
             }
 

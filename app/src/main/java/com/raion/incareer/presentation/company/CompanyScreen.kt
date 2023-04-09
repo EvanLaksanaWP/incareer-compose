@@ -42,46 +42,29 @@ fun CompanyScreen() {
             .fillMaxSize()
             .background(
                 Color(0xFFF8F8F8)
-            ),
-        contentAlignment = Alignment.Center
-    ) {
-
-    }
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(300.dp)
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(Color(0xFF388BF3), Color(0xFFF8F8F8)),
-
-                    )
             )
-            .padding(top = 20.dp, end = 25.dp),
-        contentAlignment = Alignment.TopEnd
+
     ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
 
-        ) {
-
-        }
-        Image(
-            painter = painterResource(id = R.drawable.others_icon),
-            contentDescription = "Others Icon",
-            modifier = Modifier.size(40.dp),
-            alignment = TopEnd
-
-        )
 
     }
+
+
     LockScreenOrientation(orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
 
 
     Column(modifier = Modifier
         .fillMaxSize()
+        .verticalScroll(rememberScrollState())
+        .background(
+            Brush.verticalGradient(
+                listOf(Color(0XFF1877F2), Color.Transparent),
+                startY = -250f,
+                endY = 650f,
+
+                )
+        )
 
     ) {
         Column(modifier = Modifier
@@ -92,10 +75,9 @@ fun CompanyScreen() {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(end = 0.dp),
+                        .padding(end = 20.dp),
                     horizontalArrangement = Arrangement.Center,
                 ) {
-
 
                     Image(
                         painter = painterResource(id = R.drawable.profile_picture_dummy),
@@ -107,7 +89,7 @@ fun CompanyScreen() {
 
                     Column(
                         modifier = Modifier
-                            .fillMaxWidth()
+                            .wrapContentSize()
                             .padding(top = 3.dp),
                         verticalArrangement = Arrangement.Center
 
@@ -138,7 +120,14 @@ fun CompanyScreen() {
                             fontSize = 16.sp,
                         )
                     }
+                    Spacer(Modifier.width(200.dp))
 
+                    Image(
+                        painter = painterResource(id = R.drawable.others_icon),
+                        contentDescription = "Others Icon",
+                        modifier = Modifier.size(40.dp),
+
+                        )
 
 
                 }
@@ -485,7 +474,7 @@ fun CompanyScreen() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
+                //.verticalScroll(rememberScrollState())
         ) {
 
             Card(
